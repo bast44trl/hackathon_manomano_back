@@ -2,28 +2,17 @@ const express = require("express");
 const { setupRoutes } = require("./controllers");
 const cors = require("cors");
 const app = express();
-<<<<<<< HEAD
-import "dotenv/config";
 
+import cors from "cors";
 const connection = require("./db-config");
-
-app.use(
-  cors({
-    origin: "*",
-  })
-);
-=======
-import cors from 'cors'; 
-const connection = require ("./db-config");
-import setupRoutes from './controllers';
-import 'dotenv/config';
->>>>>>> bfc28c6f5d49950c3c78686023b143c45d9c499c
+import setupRoutes from "./controllers";
+import "dotenv/config";
 
 const port = 8000;
 
 app.use(
   cors({
-    origin: "*"
+    origin: "*",
   })
 );
 
