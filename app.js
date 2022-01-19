@@ -3,10 +3,7 @@ const { setupRoutes } = require("./controllers");
 const cors = require("cors");
 const app = express();
 
-import cors from "cors";
 const connection = require("./db-config");
-import setupRoutes from "./controllers";
-import "dotenv/config";
 
 const port = 8000;
 
@@ -16,11 +13,13 @@ app.use(
   })
 );
 
+setupRoutes(app);
+
 app.use(express.json());
-app.app // GET ----------------------------
-  .get("/coucou", (req, res) => {
-    res.status(200).send("hibou");
-  });
+// app.app // GET ----------------------------
+//   .get("/coucou", (req, res) => {
+//     res.status(200).send("hibou");
+//   });
 
 // POST ---------------------------
 
