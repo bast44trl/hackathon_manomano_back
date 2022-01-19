@@ -1,10 +1,17 @@
 const express = require("express");
 const app = express();
-
+import cors from 'cors'; 
 const connection = require ("./db-config");
-const Joi = require('joi');
+import setupRoutes from './controllers';
+import 'dotenv/config';
 
 const port = 8000;
+
+app.use(
+  cors({
+    origin: "*"
+  })
+);
 
 app.use(express.json());
 
