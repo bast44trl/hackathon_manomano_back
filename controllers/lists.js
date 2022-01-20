@@ -35,6 +35,15 @@ listRouter.post("/", (req, res) => {
     .catch((err) => res.sendStatus(404));
 });
 
+listRouter.put("/:id_list", (req, res) => {
+  // console.log(req);
+  const id_list = req.params.id_list;
+  // console.log(id_list);
+  List.update(Number(id_list), req.body).then((rep) =>
+    rep ? res.status(200).json(req.body) : res.status(404)
+  );
+});
+
 // listRouter.delete('/:id', async (req, res) => {
 //     console.log(req.params.id)
 //     const productListDeleted = await ProductList.deleteProductsFromList(req.params.id)
