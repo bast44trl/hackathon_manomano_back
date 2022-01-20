@@ -13,9 +13,8 @@ app.use(
   })
 );
 
-setupRoutes(app);
-
 app.use(express.json());
+setupRoutes(app);
 // app.app // GET ----------------------------
 //   .get("/coucou", (req, res) => {
 //     res.status(200).send("hibou");
