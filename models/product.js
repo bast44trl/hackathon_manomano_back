@@ -21,6 +21,20 @@ const getAllByUser = (id) => {
       .then(([results]) => results[0])
 }
 
+const createUserProduct = (id_user,id_product) => {
+  return connection
+      .promise()
+      .query('INSERT users_products (id_user, id_product) VALUES (?,?)',[id_user,id_product])
+      .then(([results]) => results.affectedRows === 1)
+}
+
+const destroyUserProduct = (id_user,id_product) => {
+  return connection
+      .promise()
+      .query('DELETE FROM users_products WHERE id_user = ? AND id_product = ?',[id_user,id_product])
+      .then(([results]) => results.affectedRows === 1)
+}
+
 // const create = ({ title, picture, price, review }) => {
 //   return connection
 //     .promise()
@@ -41,6 +55,9 @@ module.exports = {
   getAll,
   getOne,
   getAllByUser,
+  createUserProduct,
+  destroyUserProduct,
+  
   
   
   // create
