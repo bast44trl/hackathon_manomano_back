@@ -1,5 +1,6 @@
 const listRouter = require("express").Router();
 const List = require("../models/list");
+const Lists_product = require("../models/lists_product");
 
 listRouter.get("/", (req, res) => {
   List.getAllList()
@@ -22,6 +23,19 @@ listRouter.get("/:id", (req, res) => {
     })
     .catch((error) => {
       res.status(500).send(error);
+    });
+});
+
+listRouter.get("/:id_list/productList", (req, res) => {
+  Lists_product.getProductsByList(req.params.id_list)
+    .then((products) => {
+      res.json(products);
+    })
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .send("Error retrieving products of the list from database");
     });
 });
 
