@@ -5,9 +5,6 @@ const app = express();
 
 const connection = require("./db-config");
 
-
-
-
 const port = 8000;
 
 app.use(
@@ -16,6 +13,7 @@ app.use(
   })
 );
 
+t
 app.use(express.json());
 setupRoutes(app);
 // app.app // GET ----------------------------
