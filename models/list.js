@@ -26,7 +26,7 @@ const postList = (list) => {
      .then(([results]) => {
          return { id_list: results.insertId, ...list };
      });
-};
+}
 
 const deleteOneList = (id)=>{
     return connection

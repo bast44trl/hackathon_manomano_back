@@ -13,7 +13,6 @@ app.use(
   })
 );
 
-t
 app.use(express.json());
 setupRoutes(app);
 // app.app // GET ----------------------------
