@@ -14,6 +14,7 @@ const getOne = (id) => {
     .then(([results]) => results[0]);
 };
 
+<<<<<<< Updated upstream
 const createListHasProducts = ({ id_product }) => {
   return connection
     .promise()
@@ -23,6 +24,8 @@ const createListHasProducts = ({ id_product }) => {
     });
 };
 
+=======
+>>>>>>> Stashed changes
 // const create = ({ title, picture, price, review }) => {
 //   return connection
 //     .promise()
@@ -43,5 +46,9 @@ module.exports = {
   getAll,
   getOne,
   createListHasProducts,
+<<<<<<< Updated upstream
   // create
+=======
+  // create,
+>>>>>>> Stashed changes
 };
