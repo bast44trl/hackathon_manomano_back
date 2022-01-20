@@ -12,7 +12,6 @@ lists_productRouter.get("/", (req, res) => {
 });
 
 lists_productRouter.get("/:id_list", (req, res) => {
-  // console.log(req.params.id);
   Lists_product.getProductsByList(req.params.id_list)
     .then((productList) => res.status(200).send(productList))
     .catch((error) => {
@@ -21,7 +20,6 @@ lists_productRouter.get("/:id_list", (req, res) => {
 });
 
 lists_productRouter.get("/products/:id_product", (req, res) => {
-  // console.log(req.params.id);
   Lists_product.getListsByProduct(req.params.id_product)
     .then((productList) => res.status(200).send(productList))
     .catch((error) => {

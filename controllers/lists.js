@@ -32,7 +32,6 @@ listRouter.get("/:id_list/productList", (req, res) => {
       res.json(products);
     })
     .catch((err) => {
-      console.log(err);
       res
         .status(500)
         .send("Error retrieving products of the list from database");
@@ -40,9 +39,7 @@ listRouter.get("/:id_list/productList", (req, res) => {
 });
 
 listRouter.post("/", (req, res) => {
-  console.log(req);
   const { id_user, name } = req.body;
-  console.log(id_user, name);
   List.postList(req.body)
     .then((list) => res.status(201).json(list))
     .catch((err) => res.sendStatus(404));

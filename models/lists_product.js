@@ -8,7 +8,6 @@ const getAll = (id_list) => {
 };
 
 const getProductsByList = (id_list) => {
-  // console.log(id_list);
   return connection
     .promise()
     .query(`SELECT id_product FROM lists_products WHERE id_list = ?`, [id_list])
@@ -16,7 +15,6 @@ const getProductsByList = (id_list) => {
 };
 
 const getListsByProduct = (id_product) => {
-  // console.log(id_list);
   return connection
     .promise()
     .query(`SELECT id_list FROM lists_products WHERE id_product = ?`, [

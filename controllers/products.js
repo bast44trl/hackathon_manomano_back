@@ -8,7 +8,6 @@ productsRouter.get("/", (req, res) => {
       res.json(products);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).send("Error retrieving products from database");
     });
 });
@@ -36,18 +35,5 @@ productsRouter.post("/", async (req, res) => {
     next(err);
   }
 });
-
-// productsRouter.get("/:id_list/productList", (req, res) => {
-//   ProductsList.getProductsByList(req.params.id_list)
-//     .then((products) => {
-//       res.json(products);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res
-//         .status(500)
-//         .send("Error retrieving products of the list from database");
-//     });
-// });
 
 module.exports = productsRouter;
