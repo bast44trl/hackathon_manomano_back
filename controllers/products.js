@@ -1,6 +1,6 @@
 const productsRouter = require("express").Router();
 const Product = require("../models/product");
-const ProductsList = require("../models/product_list");
+const ProductsList = require("../models/lists_product");
 
 productsRouter.get("/", (req, res) => {
   Product.getAll()
@@ -38,7 +38,7 @@ productsRouter.post("/", async (req, res) => {
 });
 
 productsRouter.get("/:id_list/productList", (req, res) => {
-  ProductsList.findProductsFromList(req.params.id_list)
+  ProductsList.getProductsByList(req.params.id_list)
     .then((products) => {
       res.json(products);
     })
