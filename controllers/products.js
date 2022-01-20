@@ -26,14 +26,14 @@ productsRouter.get("/:id", (req, res) => {
     });
 });
 
-// productsRouter.post("/", async (req, res) => {
-//   try {
-//     const product = req.body;
-//     product.id_product = await Product.create(product);
-//     res.status(201).json(product);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+productsRouter.post("/", async (req, res) => {
+  try {
+    const product = req.body;
+    product.id_product = await Product.create(product);
+    res.status(201).json(product);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = productsRouter;
