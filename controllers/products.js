@@ -1,5 +1,6 @@
 const productsRouter = require("express").Router();
 const Product = require("../models/product");
+const ProductsList = require("../models/product_list");
 
 productsRouter.get("/", (req, res) => {
   Product.getAll()
@@ -34,6 +35,19 @@ productsRouter.post("/", async (req, res) => {
   } catch (err) {
     next(err);
   }
+});
+
+productsRouter.get("/:id_list/productList", (req, res) => {
+  ProductsList.findProductsFromList(req.params.id_list)
+    .then((products) => {
+      res.json(products);
+    })
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .send("Error retrieving products of the list from database");
+    });
 });
 
 module.exports = productsRouter;
