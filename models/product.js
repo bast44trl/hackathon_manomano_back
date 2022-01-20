@@ -14,6 +14,13 @@ const getOne = (id) => {
     .then(([results]) => results[0]);
 };
 
+const getAllByUser = (id) => {
+  return connection
+      .promise()
+      .query('SELECT p.* FROM users_products as up INNER JOIN products as p ON up.id_product = p.id_product WHERE up.id_user = ?', [id])
+      .then(([results]) => results[0])
+}
+
 // const create = ({ title, picture, price, review }) => {
 //   return connection
 //     .promise()
@@ -33,5 +40,8 @@ const getOne = (id) => {
 module.exports = {
   getAll,
   getOne,
+  getAllByUser,
+  
+  
   // create
 };
