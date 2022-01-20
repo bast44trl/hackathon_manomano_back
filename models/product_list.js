@@ -11,6 +11,12 @@ const createListHasProducts = ({ id_product }) => {
     });
 };
 
+const deleteProductsFromList = ({ id_list }) => {
+  return connection
+    .promise()
+    .query(`DELETE FROM lists_has_products WHERE id_list = ?`, [id_list]);
+};
+
 const deleteListHasProducts = ({ id_product, id_list }) => {
   return connection
     .promise()
@@ -23,4 +29,5 @@ const deleteListHasProducts = ({ id_product, id_list }) => {
 module.exports = {
   createListHasProducts,
   deleteListHasProducts,
+  deleteProductsFromList,
 };
