@@ -11,19 +11,14 @@ lists_productRouter.get("/", (req, res) => {
     });
 });
 
-// lists_productRouter.get("/:id", (req, res) => {
-//   Lists_product.getById(req.params.id)
-//     .then(([list]) => {
-//       if (lists_product.length > 0) {
-//         res.json(list);
-//       } else {
-//         res.status(404).send("List not found");
-//       }
-//     })
-//     .catch((error) => {
-//       res.status(500).send(error);
-//     });
-// });
+lists_productRouter.get("/:id", (req, res) => {
+  // console.log(req.params.id);
+  Lists_product.getProductsByList(req.params.id)
+    .then((productList) => res.status(200).send(productList))
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+});
 
 lists_productRouter.post("/", (req, res) => {
   Lists_product.create(req.body)
