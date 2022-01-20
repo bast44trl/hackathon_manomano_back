@@ -15,6 +15,16 @@ const getProductsByList = (id_list) => {
     .then(([results]) => results);
 };
 
+const getListsByProduct = (id_product) => {
+  // console.log(id_list);
+  return connection
+    .promise()
+    .query(`SELECT id_list FROM lists_products WHERE id_product = ?`, [
+      id_product,
+    ])
+    .then(([results]) => results);
+};
+
 const create = (newList) => {
   return connection
     .promise()
@@ -43,4 +53,5 @@ module.exports = {
   deleteListHasProducts,
   deleteProductsFromList,
   getProductsByList,
+  getListsByProduct,
 };
