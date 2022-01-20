@@ -1,5 +1,12 @@
 const connection = require("../db-config");
 
+const findProductsFromList = (id_list) => {
+  return connection
+    .promise()
+    .query(`SELECT * FROM lists_has_products WHERE id_list = ?`, [id_list])
+    .then(([results]) => results);
+};
+
 const createListHasProducts = ({ id_product }) => {
   return connection
     .promise()
@@ -30,4 +37,5 @@ module.exports = {
   createListHasProducts,
   deleteListHasProducts,
   deleteProductsFromList,
+  findProductsFromList,
 };
