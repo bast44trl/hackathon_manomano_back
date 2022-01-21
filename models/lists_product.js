@@ -8,15 +8,16 @@ const getAll = (id_list) => {
 };
 
 const getProductsByList = (id_list) => {
-  // console.log(id_list);
   return connection
     .promise()
-    .query(`SELECT id_product FROM lists_products WHERE id_list = ?`, [id_list])
+    .query(
+      `SELECT lp.id_product, p.title, p.picture, p.review, p.price, p.id_product FROM lists_products lp INNER JOIN products p ON p.id_product = lp.id_product WHERE id_list = ?`,
+      [id_list]
+    )
     .then(([results]) => results);
 };
 
 const getListsByProduct = (id_product) => {
-  // console.log(id_list);
   return connection
     .promise()
     .query(`SELECT id_list FROM lists_products WHERE id_product = ?`, [
@@ -38,7 +39,7 @@ const deleteProductsFromList = ({ id_list }) => {
     .query(`DELETE FROM lists_products WHERE id_list = ?`, [id_list]);
 };
 
-const deleteListHasProducts = ({ id_product, id_list }) => {
+const deleteListHasProducts = (id_list, id_product) => {
   return connection
     .promise()
     .query(`DELETE FROM lists_products WHERE id_product = ? AND id_list = ?`, [
