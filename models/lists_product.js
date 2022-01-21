@@ -10,7 +10,10 @@ const getAll = (id_list) => {
 const getProductsByList = (id_list) => {
   return connection
     .promise()
-    .query(`SELECT id_product FROM lists_products WHERE id_list = ?`, [id_list])
+    .query(
+      `SELECT lp.id_product, p.title, p.picture, p.review, p.price, p.id_product FROM lists_products lp INNER JOIN products p ON p.id_product = lp.id_product WHERE id_list = ?`,
+      [id_list]
+    )
     .then(([results]) => results);
 };
 
