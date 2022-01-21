@@ -36,7 +36,7 @@ const deleteProductsFromList = ({ id_list }) => {
     .query(`DELETE FROM lists_products WHERE id_list = ?`, [id_list]);
 };
 
-const deleteListHasProducts = ({ id_product, id_list }) => {
+const deleteListHasProducts = (id_list, id_product) => {
   return connection
     .promise()
     .query(`DELETE FROM lists_products WHERE id_product = ? AND id_list = ?`, [

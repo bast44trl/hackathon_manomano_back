@@ -40,15 +40,14 @@ lists_productRouter.put("/:id_list", (req, res) => {
   );
 });
 
-lists_productRouter.delete("/:id_list", async (req, res, next) => {
+lists_productRouter.delete("/:id_list&:id_product", async (req, res, next) => {
   try {
-    const { id_list } = req.params;
-    const listDeleted = await Lists_product.delete(id_list);
-    if (listDeleted) {
-      res.status(200).send("List deleted");
-    } else {
-      throw (500, "This list cannot be deleted");
-    }
+    const id_list = req.params.id_list;
+    const id_product = req.params.id_product;
+
+    Lists_product.deleteListHasProducts(id_list, id_product).then((rep) =>
+      res.status(200)
+    );
   } catch (err) {
     next(err);
   }
