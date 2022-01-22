@@ -3,17 +3,17 @@ const { setupRoutes } = require("./controllers");
 const cors = require("cors");
 const app = express();
 
-const port = 8000;
-
 app.use(
-	cors({
-		origin: "*",
-	})
+  cors({
+    origin: "*",
+  })
 );
 
 app.use(express.json());
 setupRoutes(app);
 
-app.listen(port, () => {
-	console.log(`Server listening on port ${port}`);
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
