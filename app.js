@@ -16,4 +16,6 @@ let PORT = process.env.PORT;
 if (PORT == null || PORT == "") {
   PORT = 8000;
 }
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});
