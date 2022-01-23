@@ -1,14 +1,14 @@
-const connection = require("../db-config");
+const pool = require("../db-config");
 
 const getAll = (id_list) => {
-  return connection
+  return pool
     .promise()
     .query(`SELECT * FROM lists_products`)
     .then(([results]) => results);
 };
 
 const getProductsByList = (id_list) => {
-  return connection
+  return pool
     .promise()
     .query(
       `SELECT lp.id_product, p.title, p.picture, p.review, p.price, p.id_product FROM lists_products lp INNER JOIN products p ON p.id_product = lp.id_product WHERE id_list = ?`,
@@ -18,7 +18,7 @@ const getProductsByList = (id_list) => {
 };
 
 const getListsByProduct = (id_product) => {
-  return connection
+  return pool
     .promise()
     .query(`SELECT id_list FROM lists_products WHERE id_product = ?`, [
       id_product,
@@ -27,20 +27,20 @@ const getListsByProduct = (id_product) => {
 };
 
 const create = (newList) => {
-  return connection
+  return pool
     .promise()
     .query(`INSERT INTO lists_products SET ?`, [newList])
     .then(([result]) => result.insertId);
 };
 
 const deleteProductsFromList = ({ id_list }) => {
-  return connection
+  return pool
     .promise()
     .query(`DELETE FROM lists_products WHERE id_list = ?`, [id_list]);
 };
 
 const deleteListHasProducts = (id_list, id_product) => {
-  return connection
+  return pool
     .promise()
     .query(`DELETE FROM lists_products WHERE id_product = ? AND id_list = ?`, [
       id_product,

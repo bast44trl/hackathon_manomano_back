@@ -1,19 +1,19 @@
-const connection = require("../db-config");
+const pool = require("../db-config");
 
 const getAllList = () => {
   let sql = `SELECT * FROM lists`;
 
-  return connection.promise().query(sql);
+  return pool.promise().query(sql);
 };
 
 const getOneList = (id_list) => {
-  return connection
+  return pool
     .promise()
     .query(" SELECT * FROM lists WHERE id_list = ? ", [id_list]);
 };
 
 const postList = (list) => {
-  return connection
+  return pool
     .promise()
     .query("INSERT INTO lists (name, id_user ) VALUES(?,?)", [
       list.name,
@@ -42,14 +42,14 @@ const update = (id, attributesToUpdate) => {
 
   sql += ` WHERE id_list = ?`;
   sqlValues.push(id);
-  return connection
+  return pool
     .promise()
     .query(sql, sqlValues)
     .then(([result]) => result.affectedRows === 1);
 };
 
 const deleteOneList = (id) => {
-  return connection
+  return pool
     .promise()
     .query("DELETE FROM lists WHERE id_list = ?", [id])
     .then(([results]) => results.affectedRows === 1);
