@@ -34,15 +34,15 @@ CREATE TABLE IF NOT EXISTS `products` (
 ENGINE = InnoDB;
 
 INSERT INTO `products` (`id_product`, `title`, `picture`, `price`, `review`) VALUES 
-(1, "PawHut Pet Travel Stroller Cat Dog Pushchair Trolley Puppy Jogger Carrier Three Wheels", "poussetteImg.jpg", 174, "photo review1"),
-(2, "Ladder Shelf Industrial Pipe Wall Shelf Display Rack Plant Stand Bookcase", "etagereImg.jpg", 40, "photo review1"),
-(3, "HP457DWE10 18v Combi Drill Li-ion with 2 Batteries", "perceuseImg.jpg", 250, "photo review1"),
-(4, "Hudson Reed Delta – Radiateur Design Électrique Horizontal  – 63.5 x 84 x 4.6cm 800 Watts", "radiateurImg.jpg", 400, "photo review1"),
-(5, "Aluminum Electric Chainsaw Garden Tools Double Brake Cover Case Blade Corded 40 cm", "tronconneuseImg.jpg", 600, "photo review1"),
-(6, "Atlantic Bed Frame in White, size Small Double", "litDoubleImg.jpg", 84, "photo review1"),
+(1, "PawHut Pet Travel Stroller Cat Dog Pushchair Trolley Puppy Jogger Carrier Three Wheels", "strollerImg.jpg", 174, "photo review1"),
+(2, "Ladder Shelf Industrial Pipe Wall Shelf Display Rack Plant Stand Bookcase", "shelfImg.jpg", 40, "photo review1"),
+(3, "HP457DWE10 18v Combi Drill Li-ion with 2 Batteries", "drillImg.jpg", 250, "photo review1"),
+(4, "Hudson Reed Delta – Radiateur Design Électrique Horizontal  – 63.5 x 84 x 4.6cm 800 Watts", "radiatorImg.jpg", 400, "photo review1"),
+(5, "Aluminum Electric Chainsaw Garden Tools Double Brake Cover Case Blade Corded 40 cm", "chainsawImg.jpg", 600, "photo review1"),
+(6, "Atlantic Bed Frame in White, size Small Double", "queenBedImg.jpg", 84, "photo review1"),
 (7, "Drawer Chest of Drawers Bedroom Storage Furniture", "drawerImg.jpg", 89, "photo review1"),
 (8, "Floor Lamp Modern Standing 3-in-1 Shelf LED Lamp with Storage Black", "lampImg.jpg", 45, "photo review1"),
-(9, "Woodford Wooden Bed Frame Grey & Pine - Single", "litSimpleImg.jpg", 79, "photo review1"),
+(9, "Woodford Wooden Bed Frame Grey & Pine - Single", "singleBedImg.jpg", 79, "photo review1"),
 (10, "Mobile TV Stand on Wheels Rolling", "tvImg.jpg", 55, "photo review1");
 
 

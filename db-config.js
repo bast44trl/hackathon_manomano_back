@@ -13,10 +13,10 @@ const mysql = require("mysql2");
 }); */
 
 const pool = mysql.createPool({
-  host: "us-cdbr-east-05.cleardb.net",
-  user: "b43fbc41d59823",
-  database: "heroku_caecc15f289d066",
-  password: "812c6944",
+  host: process.env.CLEAR_DB_HOST,
+  user: process.env.CLEAR_DB_USER,
+  database: process.env.CLEAR_DB_NAME,
+  password: process.env.CLEAR_DB_PASSWORD,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

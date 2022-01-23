@@ -55,6 +55,7 @@ listRouter.put("/:id_list", (req, res) => {
 listRouter.delete("/:id_list", async (req, res, next) => {
   try {
     const { id_list } = req.params;
+    console.log("toto");
     const listDeleted = await List.deleteOneList(id_list);
     if (listDeleted) {
       res.status(200).send("List deleted");
