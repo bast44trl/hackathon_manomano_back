@@ -1,17 +1,7 @@
 require("dotenv").config();
 const mysql = require("mysql2");
 
-/* const connection = mysql.createConnection({
-  host: process.env.DB_HOST, // address of the server
-  port: process.env.DB_PORT, // port of the DB server (mysql), not to be confused with the nodeJS server PORT !
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
-
-module.exports = connection; */
-
-const pool = mysql.createPool({
+/* const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   database: process.env.DB_NAME,
@@ -20,6 +10,18 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+}); */
+
+const pool = mysql.createPool({
+  host: "us-cdbr-east-05.cleardb.net",
+  user: "b43fbc41d59823",
+  database: "heroku_caecc15f289d066",
+  password: "812c6944",
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
 module.exports = pool;
+
+/* mysql://b43fbc41d59823:812c6944@us-cdbr-east-05.cleardb.net/heroku_caecc15f289d066?reconnect=true */
